@@ -7,7 +7,6 @@ IsInvertible
 Eigenvalue 
 Eigenvector
 IsLinearlyIndependent
-TransposeMatrix
 """
 
 
@@ -123,6 +122,23 @@ def DeterminantOfMatrix(matrix = None):
     else: 
         print("Matrix has no determinant as it isn't square")
         return False
+
+
+def TransposeMatrix(matrix = None):
+    if checkForMatrix(matrix) == True:    
+        
+        tmat = []
+        
+        for column in range(len(matrix[0])):
+            tmat.append([])
+            for row in matrix:
+                tmat[column].append(0)
+
+        for row in matrix: 
+            for column in row:    
+                tmat[row.index(column)][matrix.index(row)] = column
+
+        return tmat
 
 
 """
